@@ -19,7 +19,6 @@
       <a class="meal-nav-link" href="/meals">Meals</a>
       <a class="meal-nav-link" href="/meals/add">+ Add Meal</a>
       <% if (typeof currentUser !== 'undefined' && currentUser) { %>
-        <span class="meal-nav-user"><%= currentUser.username %></span>
         <form action="/logout" method="POST"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="meal-nav-link meal-nav-logout" type="submit">Log out</button></form>
       <% } else { %>
         <a class="meal-nav-link" href="/login">Log in</a>
@@ -29,3 +28,4 @@
 </nav>
 <% } %>
 <script src="/navigation.js" defer></script>
+
