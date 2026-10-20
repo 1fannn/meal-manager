@@ -179,3 +179,14 @@ body, button, input, select, textarea, .leaflet-container { font-family: system-
 .home-page h1, .library-heading h1, .meal-section-heading h2, body > .container h2, .meal-empty h3, .library-eyebrow, .meal-note-label, .form-label, .meal-add, .btn, .meal-nav-link { text-transform: uppercase; letter-spacing: .065em; }
 .home-page h1, .meals-page .library-heading h1 { font-weight: 650; line-height: 1.2; }
 .meal-title { font-weight: 600; }
+
+.auth-container { max-width: 500px !important; margin: 28px auto; }
+.auth-container h1 { font-family: system-ui, "Segoe UI", Arial, sans-serif; font-size: clamp(28px, 5vw, 38px); font-weight: 650; line-height: 1.2; }
+.auth-container > p { font-size: 14px; margin-bottom: 24px; line-height: 1.7; }
+.auth-container > form { background: #fffdfa; border: 1px solid #e9ded3; border-radius: 18px; padding: 28px; }
+.auth-error { background: #fbebe3; color: #924d37; padding: 12px; border-radius: 8px; margin-bottom: 18px; font-size: 14px; }
+.auth-switch { text-align: center; margin: 20px 0 0; font-size: 13px; }
+.meal-nav-links { flex-wrap: wrap; }
+.meal-nav-links form { margin: 0; }
+.meal-nav-user { padding: 8px; max-width: 140px; overflow-wrap: anywhere; color: #806a59; font-size: 12px; }
+.meal-nav-logout { border: 0; background: transparent; cursor: pointer; }
