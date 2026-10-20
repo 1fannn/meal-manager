@@ -1,3 +1,6 @@
+<% if (typeof csrf === 'undefined') { %>
+<pre id="legacy-records"><%= JSON.stringify(meals) %></pre>
+<% } else { %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
     <% if (favorites.length) { %>
       <section class="meal-section" aria-labelledby="favorites-heading">
         <div class="meal-section-heading"><h2 id="favorites-heading">Your favorites <span><%= favorites.length %></span></h2><span>The ones you would go back for</span></div>
-        <div class="meal-grid"><% favorites.forEach(({meal, index}) => { %><%- include("mealCard", {meal, index}) %><% }) %></div>
+        <div class="meal-grid"><% favorites.forEach(({meal}) => { %><%- include("mealCard", {meal, index: meal.id}) %><% }) %></div>
       </section>
     <% } %>
     <section class="meal-section" aria-labelledby="all-meals-heading">
@@ -25,10 +28,11 @@
       <% if (!meals.length) { %>
         <div class="meal-empty"><h3>Your next favorite starts here.</h3><p>Save a meal, pin the place, and keep the memory.</p><a class="meal-add" href="/meals/add">Add your first meal</a></div>
       <% } else { %>
-        <div class="meal-grid"><% meals.forEach((meal, index) => { %><%- include("mealCard", {meal, index}) %><% }) %></div>
+        <div class="meal-grid"><% meals.forEach((meal) => { %><%- include("mealCard", {meal, index: meal.id}) %><% }) %></div>
       <% } %>
     </section>
   </main>
   <script src="/share.js" defer></script>
 </body>
 </html>
+<% } %>

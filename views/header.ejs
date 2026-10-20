@@ -1,4 +1,16 @@
 <link rel="stylesheet" href="/navigation.css">
+<% if (typeof personalMode !== 'undefined' && personalMode) { %>
+<nav class="meal-nav" aria-label="Main navigation">
+  <div class="meal-nav-inner">
+    <a class="meal-nav-brand" href="/">My Meal Journal<span class="meal-nav-dot" aria-hidden="true">.</span></a>
+    <div class="meal-nav-links">
+      <a class="meal-nav-link" href="/">Home</a>
+      <a class="meal-nav-link" href="/meals">My Meals</a>
+      <a class="meal-nav-link" href="/meals/add">+ Add Meal</a>
+    </div>
+  </div>
+</nav>
+<% } else { %>
 <nav class="meal-nav" aria-label="Main navigation">
   <div class="meal-nav-inner">
     <a class="meal-nav-brand" href="/">Meal Manager<span class="meal-nav-dot" aria-hidden="true">.</span></a>
@@ -6,7 +18,14 @@
       <a class="meal-nav-link" href="/">Home</a>
       <a class="meal-nav-link" href="/meals">Meals</a>
       <a class="meal-nav-link" href="/meals/add">+ Add Meal</a>
+      <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+        <span class="meal-nav-user"><%= currentUser.username %></span>
+        <form action="/logout" method="POST"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="meal-nav-link meal-nav-logout" type="submit">Log out</button></form>
+      <% } else { %>
+        <a class="meal-nav-link" href="/login">Log in</a>
+      <% } %>
     </div>
   </div>
 </nav>
+<% } %>
 <script src="/navigation.js" defer></script>

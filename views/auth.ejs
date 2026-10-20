@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= mode === 'register' ? 'Create account' : 'Log in' %> · Meal Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include('header') %>
+  <main class="container auth-container">
+    <h1><%= mode === 'register' ? 'Your own little food journal.' : 'Welcome back.' %></h1>
+    <p><%= mode === 'register' ? 'Create an account to keep your meals and favorites in one place.' : 'Log in to see your meals, places and memories.' %></p>
+    <form action="/<%= mode %>" method="POST">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <% if (error) { %><div class="auth-error" role="alert"><%= error %></div><% } %>
+      <div class="mb-3"><label class="form-label" for="username">Username</label><input class="form-control" id="username" name="username" value="<%= username %>" autocomplete="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]{3,30}" required><div class="form-text">3–30 letters, numbers or underscores.</div></div>
+      <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password" autocomplete="<%= mode === 'register' ? 'new-password' : 'current-password' %>" minlength="8" maxlength="128" required></div>
+      <% if (mode === 'register') { %><div class="mb-3"><label class="form-label" for="confirmPassword">Confirm password</label><input class="form-control" type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" minlength="8" maxlength="128" required></div><% } %>
+      <button class="btn btn-primary w-100" type="submit"><%= mode === 'register' ? 'Create account' : 'Log in' %></button>
+      <p class="auth-switch"><% if (mode === 'register') { %>Already have an account? <a href="/login">Log in</a><% } else { %>New here? <a href="/register">Create an account</a><% } %></p>
+    </form>
+  </main>
+</body>
+</html>
