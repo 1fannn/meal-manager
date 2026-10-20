@@ -23,7 +23,7 @@
     <section class="meal-section" aria-labelledby="all-meals-heading">
       <div class="meal-section-heading"><h2 id="all-meals-heading">All meals <span><%= meals.length %></span></h2><span>Your personal taste archive</span></div>
       <% if (!meals.length) { %>
-        <div class="meal-empty"><span aria-hidden="true">🍽</span><h3>Your next favorite starts here.</h3><p>Save a meal, pin the place, and keep the memory.</p><a class="meal-add" href="/meals/add">Add your first meal</a></div>
+        <div class="meal-empty"><h3>Your next favorite starts here.</h3><p>Save a meal, pin the place, and keep the memory.</p><a class="meal-add" href="/meals/add">Add your first meal</a></div>
       <% } else { %>
         <div class="meal-grid"><% meals.forEach((meal, index) => { %><%- include("mealCard", {meal, index}) %><% }) %></div>
       <% } %>
