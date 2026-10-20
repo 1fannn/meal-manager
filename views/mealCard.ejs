@@ -1,0 +1,15 @@
+<article class="meal-tile <%= meal.favorite ? 'meal-tile-favorite' : '' %>">
+  <div class="meal-tile-top"><h3 class="meal-title"><%= meal.name %></h3><span class="meal-rating" aria-label="Rating <%= meal.rating %> out of 5"><span aria-hidden="true">★</span> <%= meal.rating %><small>/ 5</small></span></div>
+  <a class="meal-address" href="https://www.google.com/maps/search/?api=1&amp;query=<%= encodeURIComponent(meal.location) %>" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><span><%= meal.location %></span></a>
+  <div class="meal-note"><span class="meal-note-label">TASTING NOTES</span><p><%= meal.comment || 'No notes yet. Edit this meal to add your thoughts.' %></p></div>
+  <div class="meal-tile-actions">
+    <form action="/meals/favorite/<%= index %>" method="POST"><button class="meal-action meal-save" type="submit" aria-pressed="<%= meal.favorite %>"><%= meal.favorite ? '♥ Saved' : '♡ Save' %></button></form>
+    <div class="meal-tools">
+      <button class="meal-action" type="button" data-share-meal data-name="<%= meal.name %>" data-location="<%= meal.location %>">Share</button>
+      <a class="meal-action" href="/meals/edit/<%= index %>">Edit</a>
+      <form action="/meals/delete/<%= index %>" method="POST"><button class="meal-action meal-delete" type="submit" aria-label="Delete <%= meal.name %>">Delete</button></form>
+    </div>
+  </div>
+</article>
+
+

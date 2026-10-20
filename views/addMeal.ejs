@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Meal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include("header") %>
+  <div class="container mt-4">
+    <h2>Add a New Meal</h2>
+    <form action="/meals/add" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Meal Name</label>
+        <input type="text" name="name" class="form-control" required>
+      </div>
+      <div class="mb-3" data-location-search>
+        <label class="form-label" for="location">Location</label>
+        <input type="text" id="location" name="location" class="form-control" placeholder="Restaurant name or full address" aria-describedby="location-help" required>
+        <div id="location-help" class="form-text">Enter a full address or restaurant name and city. Click Find address, then select a result to locate it on the map.</div>
+        <button type="button" class="btn btn-primary btn-sm mt-2" data-find-address>Find address</button>
+<div class="list-group mt-2" data-address-results aria-label="Address search results"></div>
+<div class="form-text">Address search: &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a></div>
+<div class="location-map mt-2" data-location-map aria-label="Click the map to select a location"></div>
+<div class="form-text" data-map-status role="status">Search for an address above to locate it automatically. You can also click the map.</div>
+<a class="btn btn-outline-primary btn-sm mt-2" data-map-link target="_blank" rel="noopener noreferrer" hidden>Search on Google Maps ↗</a>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Rating:</label>
+        <select name="rating" class="form-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Comment</label>
+        <textarea name="comment" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Meal</button>
+    </form>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="/location.js" defer></script>
+</body>
+</html>
+
+
+

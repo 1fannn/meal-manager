@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Meals · Meal Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="meals-page">
+  <%- include("header") %>
+  <main class="meal-library">
+    <header class="library-heading">
+      <div><span class="library-eyebrow">YOUR FOOD JOURNAL</span><h1>Good meals, remembered.</h1><p>A little collection of places and plates worth keeping.</p></div>
+      <a class="meal-add" href="/meals/add">+ Add a meal</a>
+    </header>
+    <% const favorites = meals.map((meal, index) => ({meal, index})).filter(entry => entry.meal.favorite); %>
+    <% if (favorites.length) { %>
+      <section class="meal-section" aria-labelledby="favorites-heading">
+        <div class="meal-section-heading"><h2 id="favorites-heading">Your favorites <span><%= favorites.length %></span></h2><span>The ones you would go back for</span></div>
+        <div class="meal-grid"><% favorites.forEach(({meal, index}) => { %><%- include("mealCard", {meal, index}) %><% }) %></div>
+      </section>
+    <% } %>
+    <section class="meal-section" aria-labelledby="all-meals-heading">
+      <div class="meal-section-heading"><h2 id="all-meals-heading">All meals <span><%= meals.length %></span></h2><span>Your personal taste archive</span></div>
+      <% if (!meals.length) { %>
+        <div class="meal-empty"><span aria-hidden="true">🍽</span><h3>Your next favorite starts here.</h3><p>Save a meal, pin the place, and keep the memory.</p><a class="meal-add" href="/meals/add">Add your first meal</a></div>
+      <% } else { %>
+        <div class="meal-grid"><% meals.forEach((meal, index) => { %><%- include("mealCard", {meal, index}) %><% }) %></div>
+      <% } %>
+    </section>
+  </main>
+  <script src="/share.js" defer></script>
+</body>
+</html>
