@@ -95,7 +95,7 @@ p {
 .meal-library { max-width: 1200px; margin: auto; padding: 56px 28px 80px; }
 .library-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 52px; }
 .library-eyebrow { color: #998171; font-size: 11px; letter-spacing: .18em; font-weight: 700; }
-.meals-page .library-heading h1 { font-family: Georgia, serif; font-size: clamp(30px, 4vw, 48px); font-weight: 400; text-align: left; color: #675044; margin: 12px 0; }
+.meals-page .library-heading h1 { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 400; text-align: left; color: #675044; margin: 12px 0; }
 .meals-page p { text-align: left; font-size: 14px; }
 .library-heading p { color: #9b8677; margin: 0; line-height: 1.7; }
 .meal-add { background: #b39278; color: white; text-decoration: none; padding: 13px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; white-space: nowrap; display: inline-block; }
@@ -113,7 +113,7 @@ p {
 .meal-rating { flex-shrink: 0; font-size: 16px; font-weight: 700; color: #87664b; background: #f3e8da; padding: 5px 9px; border-radius: 8px; }
 .meal-rating > span { color: #ae8559; }
 .meal-rating small { font-size: 10px; font-weight: 400; color: #a38c78; margin-left: 3px; }
-.meal-title { font-family: Georgia, serif; font-size: 26px; line-height: 1.25; margin: 0 0 13px; overflow-wrap: anywhere; }
+.meal-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 26px; line-height: 1.25; margin: 0 0 13px; overflow-wrap: anywhere; }
 .meal-address { display: flex; align-items: baseline; gap: 9px; color: #9a806a; font-size: 13px; line-height: 1.65; text-decoration: none; overflow-wrap: anywhere; }
 .meal-address:hover { color: #b39278; text-decoration: underline; }
 .meal-note { margin: 24px 0; padding: 16px; background: #f7f0e8; border-radius: 10px; flex: 1; }
@@ -129,7 +129,7 @@ p {
 .meal-delete:hover { color: #9c4132; background: #fbefea; }
 .meal-empty { text-align: center; padding: 60px 20px; border: 1px dashed #decbba; border-radius: 18px; background: #fffdfa; }
 .meal-empty > span { display: block; font-size: 38px; margin-bottom: 20px; }
-.meal-empty h3 { font-family: Georgia, serif; font-size: 28px; }
+.meal-empty h3 { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 28px; }
 .meal-empty p { text-align: center; color: #9b8677; margin: 12px 0 24px; }
 .meals-page a:focus-visible, .meals-page button:focus-visible { outline: 3px solid #c4a184; outline-offset: 3px; }
 @media (max-width: 1050px) { .meal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -149,7 +149,7 @@ p { color: var(--warm-muted); }
 a { color: #956d50; }
 a:hover { color: #765039; }
 body > .container { max-width: 880px; padding: 28px 24px 44px; }
-body > .container h2 { margin-bottom: 26px; font-family: Georgia, serif; font-weight: 400; font-size: clamp(28px, 4vw, 36px); }
+body > .container h2 { margin-bottom: 26px; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-weight: 400; font-size: clamp(28px, 4vw, 36px); }
 body > .container > form { background: #fffdfa; border: 1px solid #e9ded3; border-radius: 18px; padding: clamp(20px, 4vw, 36px); box-shadow: 0 6px 24px #694c3006; }
 .form-label { color: #755d4c; font-size: 14px; font-weight: 600; margin-bottom: 9px; }
 .form-control, .form-select { background-color: #fffefa; color: #675044; border: 1px solid #dfcdbd; border-radius: 9px; padding: 11px 13px; }
@@ -168,8 +168,14 @@ textarea.form-control { min-height: 110px; resize: vertical; }
 .location-map .leaflet-bar a { color: #755d4c; background: #fffdfa; }
 .location-map .leaflet-bar a:hover { background: #f1e4d7; }
 .location-map .leaflet-control-attribution { background: #fffdfaeb; color: #8b7462; }
-.home-page h1 { color: #675044; font-family: Georgia, serif; font-weight: 400; }
+.home-page h1 { color: #675044; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-weight: 400; }
 .home-page > .container { max-width: 1100px; padding-bottom: 0; }
 .home-image { box-shadow: 0 10px 35px #694c3010; }
 @media (max-width: 600px) { body > .container { padding: 20px 16px 32px; } }
 @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* Consistent sans-serif typography and editorial emphasis. */
+body, button, input, select, textarea, .leaflet-container { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+.home-page h1, .library-heading h1, .meal-section-heading h2, body > .container h2, .meal-empty h3, .library-eyebrow, .meal-note-label, .form-label, .meal-add, .btn, .meal-nav-link { text-transform: uppercase; letter-spacing: .065em; }
+.home-page h1, .meals-page .library-heading h1 { font-weight: 650; line-height: 1.2; }
+.meal-title { font-weight: 600; }
